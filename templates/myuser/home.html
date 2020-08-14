@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %} Home {% endblock %}
+
+{% block body %}
+
+<h2>Home</h2>
+
+{% if user.is_authenticated %}
+<h2>Hi {{ user.name }}</h2>
+<a type="button" href="{% url 'user_logout' %}">Log Out</a>
+{% else %}
+<a type="button" href="{% url 'user_signup' %}">Sign Up</a>
+<a type="button" href="{% url 'user_login' %}">Log In</a>
+{% endif %}
+
+<hr>
+{% for user in all_users %}
+
+<h4>name: {{ user.name }}</h4>
+<h4>email: {{ user.email }}</h4>
+<h4>joined on: {{ user.joined_on }}</h4>
+<h4>blog title: {{ user.blogpost.title }}</h4>
+<hr>
+
+{% endfor %}
+
+
+{% endblock %}

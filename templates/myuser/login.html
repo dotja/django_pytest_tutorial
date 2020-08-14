@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %} Log In {% endblock %}
+
+{% block body %}
+
+<a type="button" href="{% url 'home' %}">Home</a>
+<h2>Log in</h2>
+
+<div>
+<form method="post">{% csrf_token %}
+	<label>email</label>
+	<input type="email" name="email"></input>
+
+	<label>password</label>
+	<input type="password" name="password"></input>
+
+	<button type="submit">login</button>
+</form>
+</div>
+
+
+{% endblock %}
